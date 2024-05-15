@@ -1,4 +1,4 @@
-package Meal;
+package meal;
 
 public class Meal implements Food {
 
