@@ -5,9 +5,9 @@ import java.util.List;
 import Customer.Customer;
 import Establisments.Restaurant;
 import driver.Driver;
+import driver.SouthernCaliforniaCounty;
 import meal.Meal;
 import meal.Order;
-import meal.Observer;
 import java.util.Date;
 
 
@@ -43,10 +43,10 @@ public class CPPFoodDelivery {
         drivers.add(driver);
     }
 
-    public List<Driver> getAvaliableDrivers(String county, String shift){
+    public List<Driver> getAvaliableDrivers(SouthernCaliforniaCounty southernCaliforniaCounty, String shift){
         List<Driver> avaliableDrivers = new ArrayList<>();
         for (Driver driver : drivers) {
-            if (driver.getCounty().equals(county) && driver.getShift().equals(shift)) {
+            if (driver.getCounty().equals(southernCaliforniaCounty) && driver.getShift().equals(shift)) {
                 avaliableDrivers.add(driver);
             }
         }

@@ -1,15 +1,15 @@
 package Customer;
 
-
+import driver.SouthernCaliforniaCounty;
 
 public class Customer {
 
     private String name;
     private String address;
-    private String county;
+    private SouthernCaliforniaCounty county;
     private DietPlan dietRestriction;
 
-    public Customer(String name, String address, String county, DietPlan dietPlan) {
+    public Customer(String name, String address, SouthernCaliforniaCounty county, DietPlan dietPlan) {
         this.name = name;
         this.address = address;
         this.county = county;
@@ -24,7 +24,7 @@ public class Customer {
         return address;
     }
 
-    public String getCounty() {
+    public SouthernCaliforniaCounty getCounty() {
         return county;
     }
 

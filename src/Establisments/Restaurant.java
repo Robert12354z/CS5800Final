@@ -28,7 +28,7 @@ public class Restaurant {
         return address;
     }
 
-    public String getCounty() {
+    public SouthernCaliforniaCounty getCounty() {
         return county;
     }
 
