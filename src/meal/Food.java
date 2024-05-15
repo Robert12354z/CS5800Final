@@ -1,4 +1,4 @@
-package Meal;
+package meal;
 
 public interface Food {
     public double getPrice();

@@ -1,6 +1,6 @@
-package Topping;
+package topping;
 
-import Meal.Food;
+import meal.Food;
 
 public abstract class Topping implements Food {
 
