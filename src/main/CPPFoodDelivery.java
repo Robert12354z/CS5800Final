@@ -1,8 +1,19 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.List;
+import Customer.Customer;
+import Establisments.Restaurant;
+import driver.Driver;
+import meal.Meal;
+import meal.Order;
+import meal.Observer;
+import java.util.Date;
+
+
 
 public class CPPFoodDelivery {
+    private static CPPFoodDelivery instance;
     private List<Restaurant> restaurants;
     private List<Customer> customers;
     private List<Driver> drivers;
@@ -13,15 +24,42 @@ public class CPPFoodDelivery {
         drivers = new ArrayList<>();
     }
 
-    public void register(Object object) {
-        if (object instanceof Restaurant) {
-            restaurants.add((Driver) object);
+    public static CPPFoodDelivery getInstance() {
+        if (instance == null) {
+            instance = new CPPFoodDelivery();
         }
-        if (object instanceof Customer) {
-            customers.add((Customer) object);
+        return instance;
+    }
+
+    public void registerCustomer(Customer customer) {
+        customers.add(customer);
+    }
+
+    public void registerRestaurant(Restaurant restaurant) {
+        restaurants.add(restaurant);
+    }
+
+    public void registerDriver(Driver driver) {
+        drivers.add(driver);
+    }
+
+    public List<Driver> getAvaliableDrivers(String county, String shift){
+        List<Driver> avaliableDrivers = new ArrayList<>();
+        for (Driver driver : drivers) {
+            if (driver.getCounty().equals(county) && driver.getShift().equals(shift)) {
+                avaliableDrivers.add(driver);
+            }
         }
-        if (object instanceof Driver) {
-            drivers.add((Driver)object);
+        return avaliableDrivers;
+    }
+
+    public void placeOrder(Customer customer, Restaurant restaurant, ArrayList<Meal> meals, Date orderCreationTime) {
+        Order order = new Order(customer, restaurant, meals, orderCreationTime);
+        List<Driver> avaliableDrivers = getAvaliableDrivers(restaurant.getCounty(), "3rd Shift");
+        for(Driver driver : avaliableDrivers) {
+            order.registerObserver(driver);
         }
+
+
     }
 }

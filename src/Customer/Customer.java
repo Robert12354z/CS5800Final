@@ -1,6 +1,6 @@
 package Customer;
 
-import meal.DietRestriction;
+
 
 public class Customer {
 
@@ -9,10 +9,11 @@ public class Customer {
     private String county;
     private DietPlan dietRestriction;
 
-    public Customer(String name, String address, String county) {
+    public Customer(String name, String address, String county, DietPlan dietPlan) {
         this.name = name;
         this.address = address;
         this.county = county;
+        this.dietRestriction = dietPlan;
     }
 
     public String getName() {

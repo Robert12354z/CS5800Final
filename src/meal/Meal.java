@@ -1,14 +1,19 @@
 package meal;
 
+import Customer.Carbs;
+import Customer.Fats;
+import Customer.Protein;
+
+
 public class Meal implements Food {
 
-    private Fat fat;
-    private Carb carb;
-    private Protein protein;
+    private Fats fat;
+    private Carbs carb;
+    private Protein protein; 
     private int price;
     private String name;
 
-    public Meal(Fat fat, Carb carb, Protein protein, int price, String name) {
+    public Meal(Fats fat, Carbs carb, Protein protein, int price, String name) {
         this.fat = fat;
         this.carb = carb;
         this.protein = protein;
