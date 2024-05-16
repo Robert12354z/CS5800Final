@@ -56,6 +56,10 @@ public class Order implements Subject {
         return orderDeliveryTime;
     }
 
+    public void setOrderDeliveryTime(Date orderDeliveryTime) {
+        this.orderDeliveryTime = orderDeliveryTime;
+    }
+
     @Override
     public void registerObserver(Observer observer) {
         observers.add(observer);

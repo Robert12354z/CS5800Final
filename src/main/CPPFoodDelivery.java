@@ -43,23 +43,31 @@ public class CPPFoodDelivery {
         drivers.add(driver);
     }
 
-    public List<Driver> getAvaliableDrivers(SouthernCaliforniaCounty southernCaliforniaCounty, String shift){
-        List<Driver> avaliableDrivers = new ArrayList<>();
+    public Driver getAvailableDrivers(SouthernCaliforniaCounty southernCaliforniaCounty, Order order){
         for (Driver driver : drivers) {
-            if (driver.getCounty().equals(southernCaliforniaCounty) && driver.getShift().equals(shift)) {
-                avaliableDrivers.add(driver);
+            if (driver.isAvailable() && driver.getCounty().equals(southernCaliforniaCounty) && driver.orderedWithinDriversShift(order)) {
+                driver.makeUnavailable();
+                return driver;
             }
         }
-        return avaliableDrivers;
+        return null;
     }
 
     public void placeOrder(Customer customer, Restaurant restaurant, ArrayList<Meal> meals, Date orderCreationTime) {
-        Order order = new Order(customer, restaurant, meals, orderCreationTime);
-        List<Driver> avaliableDrivers = getAvaliableDrivers(restaurant.getCounty(), "3rd Shift");
-        for(Driver driver : avaliableDrivers) {
-            order.registerObserver(driver);
+        if (restaurant.getOpeningTime().compareTo(orderCreationTime) > 0 || restaurant.getClosingTime().compareTo(orderCreationTime) < 0) {
+            System.out.println("Ordered outside open hours");
+            return;
         }
-
-
+        Order order = new Order(customer, restaurant, meals, orderCreationTime);
+        Driver availableDriver = getAvailableDrivers(restaurant.getCounty(), order);
+        if (availableDriver == null) {
+            System.out.println("No available drivers");
+            return;
+        }
+        order.registerObserver(availableDriver);
+        order.notifyObservers();
+        orderCreationTime.setMinutes(orderCreationTime.getMinutes() + 10);
+        order.setOrderDeliveryTime(orderCreationTime);
+        System.out.println(availableDriver + " has picked up " + order + " at " + order.getOrderDeliveryTime());
     }
 }
