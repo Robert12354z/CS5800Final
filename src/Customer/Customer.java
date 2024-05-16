@@ -43,6 +43,7 @@ public class Customer {
                 "name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", county='" + county + '\'' +
+                ", dietRestriction=" + dietRestriction +
                 '}';
     }
     

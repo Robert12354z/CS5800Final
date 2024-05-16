@@ -113,9 +113,22 @@ public class Main {
         cpp.registerDriver(driver8);
 
         ArrayList<Food> order1 = new ArrayList<>();
-        order1.add(new Ketchup(menu1.get(0)));
+        order1.add(new Ketchup(menu2.get(0)));
         //Place Orders
         cpp.placeOrder(john, res2, order1, new Date());
+
+        ArrayList<Food> order2 = new ArrayList<>();
+        order2.add(new Ketchup(menu2.get(0)));
+        order2.add(new Ketchup(menu2.get(1)));
+        cpp.placeOrder(maddy, res2, order2, new Date());
+
+        ArrayList<Food> order3 = new ArrayList<>();
+        order3.add(new Ketchup(menu3.get(0)));
+
+
+        cpp.placeOrder(rebecca, res3, order3, new Date());
+
+        
     }
     
 }
