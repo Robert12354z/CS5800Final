@@ -1,6 +1,6 @@
 package topping;
 
-import meal.Food;
+import Meal.Food;
 
 public class Guacamole extends Topping {
     public Guacamole(Food food) {

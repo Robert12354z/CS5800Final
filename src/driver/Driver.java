@@ -1,7 +1,7 @@
 package driver;
 
-import meal.Observer;
-import meal.Order;
+import Meal.Observer;
+import Meal.Order;
 
 public class Driver implements Observer{
     private String name;
