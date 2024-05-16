@@ -12,6 +12,20 @@ public class Finalize {
         this.fat = fat;
     }
 
+    public Protein getProtein() {
+        return protein;
+    }
+
+    public Carbs getCarb() {
+        return carb;
+    }
+
+    public Fats getFat() {
+        return fat;
+    }
+
+    
+
     public String toString() {
         return "Carb: " + carb.getString() + "\n" +
                 "Protein: " + protein.getString() + "\n" +
