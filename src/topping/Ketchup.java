@@ -7,10 +7,7 @@ public class Ketchup extends Topping {
         super(food);
     }
 
-    @Override
-    public double getPrice() {
-        return super.getPrice() + .2;
-    }
+  
 
     @Override
     public String getName() {

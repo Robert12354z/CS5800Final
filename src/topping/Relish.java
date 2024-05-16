@@ -7,10 +7,7 @@ public class Relish extends Topping {
         super(food);
     }
 
-    @Override
-    public double getPrice() {
-        return super.getPrice() + .3;
-    }
+  
 
     @Override
     public String getName() {

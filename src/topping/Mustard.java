@@ -7,10 +7,7 @@ public class Mustard extends Topping {
         super(food);
     }
 
-    @Override
-    public double getPrice() {
-        return super.getPrice() + .1;
-    }
+    
 
     @Override
     public String getName() {

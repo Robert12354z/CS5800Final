@@ -11,11 +11,6 @@ public abstract class Topping implements Food {
     }
 
     @Override
-    public double getPrice() {
-        return food.getPrice();
-    }
-
-    @Override
     public String getName() {
         return food.getName();
     }

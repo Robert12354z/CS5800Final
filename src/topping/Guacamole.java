@@ -7,10 +7,7 @@ public class Guacamole extends Topping {
         super(food);
     }
 
-    @Override
-    public double getPrice() {
-        return super.getPrice() + 100;
-    }
+   
 
     @Override
     public String getName() {
