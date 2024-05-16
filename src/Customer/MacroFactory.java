@@ -1,5 +1,6 @@
 package Customer;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -9,6 +10,9 @@ public interface MacroFactory {
     Carbs createCarbs();
     Protein createProteins();
     Fats createFats();
+    ArrayList<Carbs> getAllCarbs();
+    ArrayList<Protein> getAllProteins();
+    ArrayList<Fats> getAllFats();
 }
 
 class NoRestriction implements MacroFactory{
@@ -46,14 +50,28 @@ class NoRestriction implements MacroFactory{
         return allCarbs.get(randomIndex);
     }
 
-    @Override
+    @Override 
     public Protein createProteins() {
-        return allProteins.get(randomIndex);
+        return allProteins.get(random.nextInt(allProteins.size()));
+    }
+    @Override
+    public Fats createFats() {
+        return allFats.get(random.nextInt(allFats.size()));
     }
 
     @Override
-    public Fats createFats() {
-        return allFats.get(randomIndex);
+    public ArrayList<Carbs> getAllCarbs() {
+        return allCarbs;
+    }
+
+    @Override
+    public ArrayList<Protein> getAllProteins() {
+        return allProteins;
+    }
+
+    @Override
+    public ArrayList<Fats> getAllFats() {
+        return allFats;
     }
     
 }
@@ -98,6 +116,21 @@ class Paleo implements MacroFactory{
         return allFats.get(random.nextInt(allFats.size()));
     }
 
+    @Override
+    public ArrayList<Carbs> getAllCarbs() {
+        return allCarbs;
+    }
+
+    @Override
+    public ArrayList<Protein> getAllProteins() {
+        return allProteins;
+    }
+
+    @Override
+    public ArrayList<Fats> getAllFats() {
+        return allFats;
+    }
+
 }   
 
 class Vegan implements MacroFactory{
@@ -139,7 +172,23 @@ class Vegan implements MacroFactory{
         return allFats.get(random.nextInt(allFats.size()));
     }
 
-    class NutAllergy implements MacroFactory{
+    @Override
+    public ArrayList<Carbs> getAllCarbs() {
+        return allCarbs;
+    }
+
+    @Override
+    public ArrayList<Protein> getAllProteins() {
+        return allProteins;
+    }
+
+    @Override
+    public ArrayList<Fats> getAllFats() {
+        return allFats;
+    }
+}
+
+class NutAllergy implements MacroFactory{
          private static final Random random = new Random();
 
     private static final ArrayList<Carbs> allCarbs = new ArrayList<>();
@@ -166,6 +215,7 @@ class Vegan implements MacroFactory{
         allFats.add(new Tuna());
     }
 
+
     @Override
     public Carbs createCarbs() {
         return allCarbs.get(random.nextInt(allCarbs.size()));
@@ -180,10 +230,21 @@ class Vegan implements MacroFactory{
     public Fats createFats() {
         return allFats.get(random.nextInt(allFats.size()));
     }
+
+    @Override
+    public ArrayList<Carbs> getAllCarbs() {
+        return allCarbs;
     }
 
+    @Override
+    public ArrayList<Protein> getAllProteins() {
+        return allProteins;
+    }
 
-
+    @Override
+    public ArrayList<Fats> getAllFats() {
+        return allFats;
+    }
 
 }
 
@@ -230,5 +291,19 @@ class NutAll implements MacroFactory{
         return allFats.get(random.nextInt(allFats.size()));
     }
 
+    @Override
+    public ArrayList<Carbs> getAllCarbs() {
+        return allCarbs;
+    }
+
+    @Override
+    public ArrayList<Protein> getAllProteins() {
+        return allProteins;
+    }
+
+    @Override
+    public ArrayList<Fats> getAllFats() {
+        return allFats;
+    }
 }
 
