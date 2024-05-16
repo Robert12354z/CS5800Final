@@ -1,13 +1,20 @@
 package main;
 
+import java.util.ArrayList;
 import java.sql.Time;
 
+import Customer.Carbs;
 import Customer.Customer;
 import Customer.DietPlan;
+import Customer.Fats;
 import Customer.Finalize;
+import Customer.MacroAbstract;
 import Establisments.Restaurant;
+import Meal.Meal;
 import driver.Driver;
 import driver.SouthernCaliforniaCounty;
+import Customer.MacroFactory;
+import Customer.Protein;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,16 +23,43 @@ public class Main {
         DietPlan nutAll = DietPlan.NUTALL;
         DietPlan noRestriction = DietPlan.NORESTRICTION;
 
+        ArrayList<Meal> menu1 = new ArrayList<>();
+        ArrayList<Meal> menu2 = new ArrayList<>();
+        ArrayList<Meal> menu3 = new ArrayList<>();
+
+        MacroFactory macroFactory = MacroAbstract.getInstance().getFactory(noRestriction);
+        ArrayList<Protein> proteins = macroFactory.getAllProteins();
+        ArrayList<Carbs> carbs = macroFactory.getAllCarbs();
+        ArrayList<Fats> fats = macroFactory.getAllFats();
+        
+        menu1.add(new Meal(fats.get(0), carbs.get(0), proteins.get(0), "Chicken Salad"));
+        menu1.add(new Meal(fats.get(1), carbs.get(1), proteins.get(1), "Beef Tacos"));
+        menu1.add(new Meal(fats.get(2), carbs.get(2), proteins.get(2), "Fish Tacos"));
+        menu1.add(new Meal(fats.get(3), carbs.get(3), proteins.get(3), "Tofu Tacos"));
+
+        menu2.add(new Meal(fats.get(0), carbs.get(0), proteins.get(0), "Chicken Rice"));
+        menu2.add(new Meal(fats.get(1), carbs.get(1), proteins.get(1), "Burger"));
+        menu2.add(new Meal(fats.get(2), carbs.get(2), proteins.get(2), "Fish and Chips"));
+        menu2.add(new Meal(fats.get(3), carbs.get(3), proteins.get(3), "Tofu Salad"));
+        
+        menu3.add(new Meal(fats.get(0), carbs.get(0), proteins.get(0), "Chicken Teriyaki"));
+        menu3.add(new Meal(fats.get(1), carbs.get(1), proteins.get(1), "Nachos"));
+        menu3.add(new Meal(fats.get(2), carbs.get(2), proteins.get(2), "Orange Chicken"));
+        menu3.add(new Meal(fats.get(3), carbs.get(3), proteins.get(3), "Tofu Teriyaki"));
+
+
+
+
 
         CPPFoodDelivery cpp = CPPFoodDelivery.getInstance();
         Time openingTime = new Time(12);
         Time closingTime = new Time(24);
 
         //Register Restaurants
-        Restaurant res1 = new Restaurant("Mcdonalds","123 Seasame Street",SouthernCaliforniaCounty.LA_COUNTY, openingTime, closingTime, "Mexican");
-        Restaurant res2 = new Restaurant("In-N-Out","253 Mcdonald Ave",SouthernCaliforniaCounty.ORANGE_COUNTY, openingTime, closingTime, "American");
-        Restaurant res3 = new Restaurant("Panda Express","123 Panda Lane",SouthernCaliforniaCounty.SAN_BERNARDINO_COUNTY, openingTime, closingTime, "Chinese");
-        Restaurant res4 = new Restaurant("Taco Bell","123 Taco Lane",SouthernCaliforniaCounty.LA_COUNTY, openingTime, closingTime, "Mexican");
+        Restaurant res1 = new Restaurant("Mcdonalds","123 Seasame Street",SouthernCaliforniaCounty.LA_COUNTY, openingTime, closingTime, "Mexican",menu1);
+        Restaurant res2 = new Restaurant("In-N-Out","253 Mcdonald Ave",SouthernCaliforniaCounty.ORANGE_COUNTY, openingTime, closingTime, "American",menu2);
+        Restaurant res3 = new Restaurant("Panda Express","123 Panda Lane",SouthernCaliforniaCounty.SAN_BERNARDINO_COUNTY, openingTime, closingTime, "Chinese",menu3);
+        Restaurant res4 = new Restaurant("Taco Bell","123 Taco Lane",SouthernCaliforniaCounty.LA_COUNTY, openingTime, closingTime, "Mexican",menu1);
 
         cpp.registerRestaurant(res1);
         cpp.registerRestaurant(res2);
