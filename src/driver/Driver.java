@@ -71,4 +71,16 @@ public class Driver implements Observer {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", county='" + county + '\'' +
+                ", shift='" + shift + '\'' +
+                ", available= " + available + '\'' +
+                '}';
+    }
+
+
 }

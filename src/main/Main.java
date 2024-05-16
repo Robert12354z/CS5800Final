@@ -1,7 +1,7 @@
 package main;
 
 import java.util.ArrayList;
-import java.sql.Time;
+import java.util.Date;
 
 import Customer.Carbs;
 import Customer.Customer;
@@ -15,6 +15,8 @@ import driver.Driver;
 import driver.SouthernCaliforniaCounty;
 import Customer.MacroFactory;
 import Customer.Protein;
+import topping.Ketchup;
+import Meal.Food;
 
 public class Main {
     public static void main(String[] args) {
@@ -52,8 +54,10 @@ public class Main {
 
 
         CPPFoodDelivery cpp = CPPFoodDelivery.getInstance();
-        Time openingTime = new Time(12);
-        Time closingTime = new Time(24);
+        Date openingTime = new Date();
+        openingTime.setHours(1);
+        Date closingTime = new Date();
+        closingTime.setHours(23);
 
         //Register Restaurants
         Restaurant res1 = new Restaurant("Mcdonalds","123 Seasame Street",SouthernCaliforniaCounty.LA_COUNTY, openingTime, closingTime, "Mexican",menu1);
@@ -108,9 +112,10 @@ public class Main {
         cpp.registerDriver(driver7);
         cpp.registerDriver(driver8);
 
+        ArrayList<Food> order1 = new ArrayList<>();
+        order1.add(new Ketchup(menu1.get(0)));
         //Place Orders
-        cpp.placeOrder(john, res1, null, null);
-
-    }   
+        cpp.placeOrder(john, res2, order1, new Date());
+    }
     
 }

@@ -12,14 +12,14 @@ import driver.Driver;
 public class Order implements Subject {
     private Customer customer;
     private Restaurant restaurant;
-    private ArrayList<Meal> meals;
+    private ArrayList<Food> meals;
     private Driver driver;
     private Date orderCreationTime;
     private Date orderDeliveryTime;
     private ArrayList<Observer> observers;
     private String shift;
 
-    public Order(Customer customer, Restaurant restaurant, ArrayList<Meal> meals, Date orderCreationTime) {
+    public Order(Customer customer, Restaurant restaurant, ArrayList<Food> meals, Date orderCreationTime) {
         this.customer = customer;
         this.restaurant = restaurant;
         this.meals = meals;
@@ -40,7 +40,7 @@ public class Order implements Subject {
         return restaurant;
     }
 
-    public ArrayList<Meal> getMeals() {
+    public ArrayList<Food> getMeals() {
         return meals;
     }
 

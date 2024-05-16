@@ -16,4 +16,7 @@ public class Mustard extends Topping {
     public String getName() {
         return super.getName() + "with Mustard";
     }
+
+    @Override
+    public String toString(){return "Mustard"; }
 }

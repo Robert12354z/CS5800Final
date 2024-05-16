@@ -16,4 +16,7 @@ public class Ketchup extends Topping {
     public String getName() {
         return super.getName() + "with Ketchup";
     }
+
+    @Override
+    public String toString(){return "Ketchup"; }
 }

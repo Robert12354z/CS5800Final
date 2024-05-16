@@ -9,6 +9,7 @@ import driver.SouthernCaliforniaCounty;
 import Meal.Meal;
 import Meal.Order;
 import java.util.Date;
+import Meal.Food;
 
 
 
@@ -53,11 +54,12 @@ public class CPPFoodDelivery {
         return null;
     }
 
-    public void placeOrder(Customer customer, Restaurant restaurant, ArrayList<Meal> meals, Date orderCreationTime) {
+    public void placeOrder(Customer customer, Restaurant restaurant, ArrayList<Food> meals, Date orderCreationTime) {
         if (restaurant.getOpeningTime().compareTo(orderCreationTime) > 0 || restaurant.getClosingTime().compareTo(orderCreationTime) < 0) {
             System.out.println("Ordered outside open hours");
             return;
         }
+
         Order order = new Order(customer, restaurant, meals, orderCreationTime);
         Driver availableDriver = getAvailableDrivers(restaurant.getCounty(), order);
         if (availableDriver == null) {
