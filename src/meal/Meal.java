@@ -27,6 +27,32 @@ public class Meal implements Food {
 
     @Override
     public String getName() {
-        return null;
+        return this.name;
     }
+
+    public Meal(Fats fat, Carbs carb, Protein protein) {
+        this(fat,carb,protein,"");
+    }
+
+    public void setCarb(Carbs carb) {
+        this.carb = carb;
+    }
+
+    public void setFat(Fats fat) {
+        this.fat = fat;
+    }
+
+    public void setProtein(Protein protein) {
+        this.protein = protein;
+    }
+
+    public String toString(){
+        return " Carb: " + carb.getString() + 
+                " Protein: " + protein.getString() + 
+                " Fat: " + fat.getString();
+    }
+
+
+
+    
 }

@@ -10,6 +10,10 @@ public abstract class Topping implements Food {
         this.food = food;
     }
 
+    public Food unwrap(){
+        return food;
+    }
+
     @Override
     public double getPrice() {
         return food.getPrice();

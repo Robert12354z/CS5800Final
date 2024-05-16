@@ -3,6 +3,7 @@ package main;
 import java.util.ArrayList;
 import java.util.List;
 import Customer.Customer;
+import Customer.Finalize;
 import Establisments.Restaurant;
 import driver.Driver;
 import driver.SouthernCaliforniaCounty;
@@ -10,6 +11,7 @@ import Meal.Meal;
 import Meal.Order;
 import java.util.Date;
 import Meal.Food;
+import topping.Topping;
 
 
 
@@ -66,10 +68,30 @@ public class CPPFoodDelivery {
             System.out.println("No available drivers");
             return;
         }
+
+        for(Food meal : meals){
+            if(!restaurant.getMenu().contains(((Topping)meal).unwrap())){
+                System.out.println("Meal not in menu");
+                return;
+            }
+        }
+
+        for(Food meal : meals){
+            Finalize finalize = customer.finalizing(); //generating protein, carb, fat for meal
+
+            ((Meal)(((Topping)meal).unwrap())).setCarb(finalize.getCarb());
+            ((Meal)(((Topping)meal).unwrap())).setFat(finalize.getFat());
+            ((Meal)(((Topping)meal).unwrap())).setProtein(finalize.getProtein());
+        }
+
         order.registerObserver(availableDriver);
         order.notifyObservers();
         orderCreationTime.setMinutes(orderCreationTime.getMinutes() + 10);
         order.setOrderDeliveryTime(orderCreationTime);
         System.out.println(availableDriver + " has picked up " + order + " at " + order.getOrderDeliveryTime());
+        System.out.println("Meal = " );
+        for(Food meal : meals){
+            System.out.println(((Meal)(((Topping)meal).unwrap())));
+        }
     }
 }
