@@ -10,11 +10,11 @@ import Customer.Fats;
 import Customer.Finalize;
 import Customer.MacroAbstract;
 import Establisments.Restaurant;
+import Meal.Meal;
 import driver.Driver;
 import driver.SouthernCaliforniaCounty;
 import Customer.MacroFactory;
 import Customer.Protein;
-import Meal.Meal;
 
 public class Main {
     public static void main(String[] args) {

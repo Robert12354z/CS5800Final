@@ -1,4 +1,4 @@
-package meal;
+package Meal;
 
 import Customer.Carbs;
 import Customer.Fats;

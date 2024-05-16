@@ -1,4 +1,4 @@
-package meal;
+package Meal;
 
 import java.util.ArrayList;
 import java.util.Date;

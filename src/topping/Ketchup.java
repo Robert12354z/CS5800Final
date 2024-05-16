@@ -1,6 +1,6 @@
 package topping;
 
-import meal.Food;
+import Meal.Food;
 
 public class Ketchup extends Topping {
     public Ketchup(Food food) {
