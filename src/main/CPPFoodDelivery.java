@@ -6,8 +6,8 @@ import Customer.Customer;
 import Establisments.Restaurant;
 import driver.Driver;
 import driver.SouthernCaliforniaCounty;
-import meal.Meal;
-import meal.Order;
+import Meal.Meal;
+import Meal.Order;
 import java.util.Date;
 
 

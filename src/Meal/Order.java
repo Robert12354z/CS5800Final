@@ -1,4 +1,4 @@
-package meal;
+package Meal;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,7 +9,7 @@ import driver.Driver;
 
 
 
-public class Order implements Subject{
+public class Order implements Subject {
     private Customer customer;
     private Restaurant restaurant;
     private ArrayList<Meal> meals;
