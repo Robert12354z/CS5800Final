@@ -10,11 +10,17 @@ public class Driver implements Observer {
     private final TimeShifts shift;
     private boolean available;
 
-    public Driver(String name, String address, SouthernCaliforniaCounty county, TimeShifts shift) {
+    public Driver(String name, String address, SouthernCaliforniaCounty county, String shift) {
         this.name = name;
         this.address = address;
         this.county = county;
-        this.shift = shift;
+        if (shift.equals("1st Shift")){
+            this.shift = TimeShifts.FIRST;
+        } else if (shift.equals("2nd Shift")){
+            this.shift = TimeShifts.SECOND;
+        } else {
+            this.shift = TimeShifts.THIRD;
+        }
         available = true;
     }
 
@@ -64,5 +70,17 @@ public class Driver implements Observer {
             return order.getOrderCreationTime().getHours() < 8;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", county='" + county + '\'' +
+                ", shift='" + shift + '\'' +
+                ", available= " + available + '\'' +
+                '}';
+    }
+
 
 }

@@ -16,4 +16,8 @@ public class Guacamole extends Topping {
     public String getName() {
         return super.getName() + "with Guacamole";
     }
+
+    @Override
+    public String toString(){return "Guacamole"; }
+
 }

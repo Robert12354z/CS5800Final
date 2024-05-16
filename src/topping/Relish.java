@@ -17,4 +17,7 @@ public class Relish extends Topping {
     public String getName() {
         return super.getName() + "with Relish";
     }
+
+    @Override
+    public String toString(){return "Relish"; }
 }
